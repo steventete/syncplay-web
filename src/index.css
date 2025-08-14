@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: 52 211 153;
+    --color-secondary: 16 185 129;
+    --color-accent: 10 174 128;
+    --color-background: 255 255 255;
+    --color-foreground: 17 24 39;
+    --color-muted: 107 114 128;
+    --color-border: 229 231 235;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-primary: 16 185 129;
+      --color-secondary: 10 174 128;
+      --color-accent: 52 211 153;
+      --color-background: 17 24 39;
+      --color-foreground: 249 250 251;
+      --color-muted: 156 163 175;
+      --color-border: 55 65 81;
+    }
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-[rgb(var(--color-primary))];
+  }
+  .bg-secondary {
+    @apply bg-[rgb(var(--color-secondary))];
+  }
+  .bg-accent {
+    @apply bg-[rgb(var(--color-accent))];
+  }
+  .bg-background {
+    @apply bg-[rgb(var(--color-background))];
+  }
+  .text-foreground {
+    @apply text-[rgb(var(--color-foreground))];
+  }
+  .text-muted {
+    @apply text-[rgb(var(--color-muted))];
+  }
+  .border-custom {
+    @apply border-[rgb(var(--color-border))];
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-blur {
+  animation: fadeInBlur 0.5s ease-out forwards;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
